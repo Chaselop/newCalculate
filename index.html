@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" content="width=device-width,user-scalable=no" name="viewport"> 
-<title>何利健测试</title> 
+<title>服务费计算</title> 
 <script>
     function calculate() {
         var value1 = document.getElementById("payNum").value
@@ -11,17 +11,22 @@
         value2 = parseFloat(value2)
         var value3 = document.getElementById("VaccinePayment").value
         value3 = parseFloat(value3)
-        document.getElementById("result").value = value1 * value2 - value3
+        var result = value1 * value2 - value3
+        result = result.toFixed(2)
+        document.getElementById("result").value = result
     }
 </script>
 </head>
 <body>
-<p>公域团单：</p>
 <form action="">
     <input type="text" id="payNum">用户支付金额<br>
-    <input type="text" id="commission" value="0.96">扣除佣金<br>
-    <input type="text" id="VaccinePayment" value="3916">疫苗款<br>
+    <input type="text" id="commission" value="0.96">佣金<br>
+    <input type="text" id="VaccinePayment" value="3916.5">疫苗款<br>
     <input type="button" value="计算服务费" onclick="calculate()"><br>
     <input type="text" id="result">服务费
+
+<p>公域团单(需要乘0.96)</p>
+<p>自营(如医鹿自营店、微盟、到店支付)不需要乘0.96</p>
+<p>九价疫苗款参考三针3916.5元，两针2611元，一针1305.5元</p>
 </body>
 </html>
