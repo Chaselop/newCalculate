@@ -11,9 +11,15 @@
         value2 = parseFloat(value2)
         var value3 = document.getElementById("VaccinePayment").value
         value3 = parseFloat(value3)
+        var value4 = document.getElementById("doseCount").value
+        value4 = parseFloat(value4)
         var result = value1 * value2 - value3
-        result = result.toFixed(2)
+        result = result / value4
+        result = result.toFixed(3)
+        var total = value1 * value2
+        
         document.getElementById("result").value = result
+      document.getElementById("totalMoney").value = total
     }
 </script>
 </head>
@@ -22,12 +28,16 @@
     <input type="text" id="payNum">用户支付金额<br>
     <input type="text" id="commission" value="0.96">佣金<br>
     <input type="text" id="VaccinePayment" value="3916.5">疫苗款<br>
+    <input type= "text" id="doseCount" value="3">针次<br>
     <input type="button" value="计算服务费" onclick="calculate()"><br>
+    <label >总额：<input type= "text" id="totalMoney" value=""> </label><br>
     <input type="text" id="result">服务费
 
-<p> <font size="2">公域团单(需要乘0.96)</p>
-<p>自营(如医鹿自营店、微盟、到店支付)不需要乘0.96</p>
 <p>九价疫苗款参考三针3916.5元，两针2611元，一针1305.5元</p>
+<p>1：公域用户每针接种收入计算方式：
+  用户实付*0.96/3 </p>
+
+<p>2：自营（医鹿直营店/分时预约/约苗/毓舫微信小程序/到店支付/原童康用户，每针接种收入计算方式：
+用户实付/3</p>
 </body>
 </html>
-
